@@ -59,15 +59,18 @@ function initNavbar() {
 function renderHeroMetadata() {
   const chipsContainer = document.getElementById('heroMetaChips');
   if (chipsContainer) {
-    chipsContainer.innerHTML = `
-      <span class="badge badge-moss">${Icons.book} ${ThesisMeta.institution}</span>
-      <span class="badge badge-stone">${Icons.shield} ${ThesisMeta.degree}</span>
-      <span class="badge badge-stone">${Icons.scale} ${ThesisMeta.date}</span>
-      <span class="badge badge-stone">${ThesisMeta.totalPages} 頁完整研究</span>
-      <a href="${ThesisMeta.handleUrl}" target="_blank" rel="noopener" class="badge badge-moss" style="text-decoration:none;">
-        ${Icons.externalLink} 臺灣博碩士論文知識加值系統
-      </a>
-    `;
+    const heroTags = [
+      "國立臺北大學犯罪學研究所",
+      "碩士論文",
+      "2026 年 7 月（July 2026）",
+      "臺灣",
+      "情慾產業",
+      "犯罪學",
+      "情境犯罪預防（SCP）"
+    ];
+    chipsContainer.innerHTML = heroTags.map(tag => `
+      <span class="badge badge-stone">${tag}</span>
+    `).join('');
   }
 
   const quoteBox = document.getElementById('heroQuoteBox');

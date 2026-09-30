@@ -11,7 +11,7 @@ const ThesisMeta = {
   institution: "國立臺北大學犯罪學研究所碩士論文",
   institutionEnglish: "Graduate School of Criminology, National Taipei University",
   degree: "法學碩士（Master of Arts in Criminology and Criminal Justice）",
-  date: "中華民國 115 年 7 月（July 2026）",
+  date: "2026 年 7 月（July 2026）",
   studentId: "710764109",
   totalPages: 154,
   handleUrl: "https://hdl.handle.net/11296/c8b7dd",

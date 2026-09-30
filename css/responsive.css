@@ -21,28 +21,8 @@
   outline: 2px solid var(--color-moss);
 }
 
-/* 1024px 平板橫向與小型螢幕 */
-@media (max-width: 1024px) {
-  .grid-3 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .stat-summary-bar {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .triangle-container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 768px 平板直向與手機尺寸 */
-@media (max-width: 768px) {
-  :root {
-    --spacing-8: 48px;
-    --spacing-6: 32px;
-  }
-
+/* 1160px 平板與小型筆電螢幕：切換選單避免連結擠壓 */
+@media (max-width: 1160px) {
   .mobile-nav-toggle {
     display: inline-flex;
   }
@@ -76,6 +56,29 @@
   .nav-link:hover, .nav-link.active {
     border-left-color: var(--color-moss);
     background-color: var(--color-paper-tint);
+  }
+}
+
+/* 1024px 平板橫向與小型螢幕 */
+@media (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-summary-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .triangle-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 768px 平板直向與手機尺寸 */
+@media (max-width: 768px) {
+  :root {
+    --spacing-8: 48px;
+    --spacing-6: 32px;
   }
 
   .grid-3, .grid-2 {

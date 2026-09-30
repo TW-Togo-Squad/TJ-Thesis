@@ -99,13 +99,16 @@ body {
   min-height: 100vh;
 }
 
-/* 標題與強調字體 - 採用襯線體 */
-h1, h2, h3, h4, .font-serif, .quote-text, .thesis-title {
+/* 標題與強調字體 - 採用襯線體，啟用文字平衡防擠壓 */
+h1, h2, h3, h4, h5, h6, .font-serif, .quote-text, .thesis-title {
   font-family: var(--font-serif);
   color: var(--color-ink);
   font-weight: 500;
   line-height: var(--leading-heading);
   letter-spacing: 0.02em;
+  text-wrap: balance;
+  word-break: keep-all;
+  overflow-wrap: normal;
 }
 
 h1 {
@@ -129,6 +132,15 @@ p {
   word-break: break-word;
   overflow-wrap: break-word;
   text-align: left;
+}
+
+.text-nowrap {
+  white-space: nowrap;
+}
+
+.title-phrase {
+  display: inline-block;
+  white-space: nowrap;
 }
 
 a {
@@ -213,6 +225,7 @@ hr, .divider {
   transition: all var(--transition-fast);
   text-decoration: none;
   user-select: none;
+  white-space: nowrap;
 }
 
 .btn:focus-visible {
