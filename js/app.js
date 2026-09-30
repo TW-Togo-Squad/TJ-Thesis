@@ -480,8 +480,10 @@ function renderSCPSection() {
   if (pillarsContainer) {
     pillarsContainer.innerHTML = SCPData.fourActionPillars.map(p => `
       <div class="pillar-card">
-        <span class="badge badge-moss pillar-badge">${Icons.target} 實務操作</span>
-        <h3 style="margin-bottom:8px;">${p.title}</h3>
+        <div class="pillar-header">
+          <h3 style="margin-bottom:0;">${p.title}</h3>
+          <span class="badge badge-moss">${Icons.target} 實務操作</span>
+        </div>
         <p style="color:var(--color-ink-muted); margin-bottom:12px;">${p.focus}</p>
         <ul class="bullet-list">
           ${p.measures.map(m => `<li>${m}</li>`).join('')}

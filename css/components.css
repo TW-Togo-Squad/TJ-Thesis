@@ -544,6 +544,8 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
   margin-bottom: var(--spacing-1);
 }
 
@@ -552,6 +554,7 @@
   font-size: 1.15rem;
   font-weight: 500;
   color: var(--color-ink);
+  white-space: nowrap;
 }
 
 .term-english {
@@ -620,13 +623,15 @@
   border: 1px solid var(--color-stone-light);
   border-radius: var(--radius-card);
   padding: var(--spacing-4);
-  position: relative;
 }
 
-.pillar-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
+.pillar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 8px;
 }
 
 /* 10. 支援資源與緊急指引 (Resources Section) */
@@ -667,6 +672,19 @@
 }
 
 /* 11. 引用產生器 (Citation Module) */
+.btn-sm {
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.btn-outline.active-format {
+  background-color: var(--color-moss);
+  border-color: var(--color-moss);
+  color: #F7F4EF;
+}
+
 .citation-box {
   background: var(--color-paper-card);
   border: 1px solid var(--color-stone-light);
