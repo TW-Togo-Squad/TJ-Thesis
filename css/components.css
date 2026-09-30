@@ -1,0 +1,676 @@
+/* ==========================================================================
+   COMPONENTS CSS - 模組與元件樣式庫
+   遵循低飽和色票、留白節奏、無 Emoji、無炫技漸層
+   ========================================================================== */
+
+/* 1. 頂部導航欄 (Navbar) */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(247, 244, 239, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-stone-light);
+  transition: all var(--transition-smooth);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.brand-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.brand-badge {
+  font-family: var(--font-serif);
+  font-size: var(--text-small);
+  padding: 2px 8px;
+  border: 1px solid var(--color-moss-border);
+  background: var(--color-moss-light);
+  color: var(--color-moss);
+  border-radius: var(--radius-button);
+}
+
+.brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--color-ink);
+  letter-spacing: 0.02em;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  list-style: none;
+}
+
+.nav-link {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  text-decoration: none;
+  padding: 8px 4px;
+  border-bottom: 2px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--color-moss);
+  border-bottom-color: var(--color-moss);
+  text-decoration: none;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+/* 2. 首頁 Hero 區塊 (Hero Section) */
+.hero-section {
+  padding: var(--spacing-8) 0 var(--spacing-6);
+  border-bottom: 1px solid var(--color-stone-light);
+}
+
+.thesis-academic-header {
+  margin-bottom: var(--spacing-3);
+}
+
+.thesis-meta-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  margin-bottom: var(--spacing-2);
+}
+
+.hero-main-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  line-height: 1.25;
+  margin-bottom: var(--spacing-2);
+  color: var(--color-ink);
+}
+
+.hero-english-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+  margin-bottom: var(--spacing-4);
+}
+
+.hero-author-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-2) 0;
+  border-top: 1px solid var(--color-stone-light);
+  border-bottom: 1px solid var(--color-stone-light);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  margin-bottom: var(--spacing-4);
+}
+
+.author-item strong {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.hero-quote-card {
+  background-color: var(--color-paper-card);
+  border: 1px solid var(--color-moss-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+  position: relative;
+}
+
+.quote-highlight {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  line-height: 1.7;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-1);
+}
+
+.quote-signature {
+  font-size: var(--text-small);
+  color: var(--color-moss);
+  font-family: var(--font-sans);
+  text-align: right;
+  display: block;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-3);
+}
+
+/* 3. 論文三大核心洞察與視角轉向區塊 (Key Insights) */
+.section-block {
+  padding: var(--spacing-8) 0;
+  border-bottom: 1px solid var(--color-stone-light);
+}
+
+.section-header {
+  margin-bottom: var(--spacing-6);
+  text-align: left;
+}
+
+.section-tag {
+  color: var(--color-moss);
+  font-size: var(--text-small);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: var(--spacing-1);
+  display: block;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-3);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-4);
+}
+
+.insight-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.insight-card-number {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  color: var(--color-stone);
+  margin-bottom: var(--spacing-1);
+  line-height: 1;
+}
+
+.insight-card h3 {
+  margin-bottom: var(--spacing-2);
+}
+
+.insight-card p {
+  color: var(--color-ink-muted);
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+/* 4. 判決統計圖表 (Data Statistics Section) */
+.stat-summary-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+}
+
+.stat-metric-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-3);
+  text-align: center;
+}
+
+.stat-metric-number {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--color-moss);
+  line-height: 1.2;
+}
+
+.stat-metric-label {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+}
+
+.stat-chart-box {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.chart-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 1px solid var(--color-stone-light);
+}
+
+.stat-bar-item {
+  margin-bottom: var(--spacing-3);
+}
+
+.stat-bar-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-small);
+  margin-bottom: 6px;
+}
+
+.stat-bar-header .item-label {
+  color: var(--color-ink);
+  font-weight: 500;
+}
+
+.stat-bar-header .item-val {
+  color: var(--color-ink-muted);
+}
+
+.stat-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: var(--color-paper-tint);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.stat-bar-fill {
+  height: 100%;
+  background-color: var(--color-moss);
+  border-radius: 6px;
+  transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-bar-fill.fill-rust {
+  background-color: var(--color-rust);
+}
+
+.stat-bar-fill.fill-stone {
+  background-color: var(--color-stone);
+}
+
+.chart-insight-box {
+  background: var(--color-paper-tint);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-button);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  margin-top: var(--spacing-3);
+  border-left: 2px solid var(--color-stone);
+}
+
+/* 5. 犯罪鐵三角互動模型 (Interactive Crime Triangle) */
+.triangle-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4);
+  align-items: start;
+}
+
+.triangle-diagram-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  text-align: center;
+}
+
+.svg-triangle-wrap {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.triangle-interactive-node {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.triangle-interactive-node:hover rect {
+  stroke: var(--color-moss);
+  stroke-width: 2px;
+}
+
+.triangle-interactive-node.active rect {
+  fill: var(--color-moss-light);
+  stroke: var(--color-moss);
+  stroke-width: 2px;
+}
+
+.triangle-detail-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  min-height: 380px;
+}
+
+.detail-layer-pill {
+  margin-bottom: var(--spacing-2);
+}
+
+/* 6. 章節閱讀器 (Chapters Reader Accordion) */
+.chapters-nav-tabs {
+  display: flex;
+  overflow-x: auto;
+  gap: var(--spacing-1);
+  padding-bottom: var(--spacing-2);
+  margin-bottom: var(--spacing-4);
+  border-bottom: 1px solid var(--color-stone-light);
+  -webkit-overflow-scrolling: touch;
+}
+
+.chapter-tab-btn {
+  white-space: nowrap;
+  padding: 8px 16px;
+  font-size: var(--text-small);
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-stone-light);
+  background: var(--color-paper-card);
+  cursor: pointer;
+  color: var(--color-ink-muted);
+  transition: all var(--transition-fast);
+}
+
+.chapter-tab-btn:hover {
+  border-color: var(--color-moss);
+  color: var(--color-moss);
+}
+
+.chapter-tab-btn.active {
+  background: var(--color-moss);
+  border-color: var(--color-moss);
+  color: #F7F4EF;
+}
+
+.chapter-display-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-6);
+  margin-bottom: var(--spacing-4);
+}
+
+.section-item-card {
+  border-top: 1px solid var(--color-stone-light);
+  padding: var(--spacing-3) 0;
+}
+
+.section-item-card:first-child {
+  border-top: none;
+}
+
+.bullet-list {
+  list-style: none;
+  margin-top: var(--spacing-2);
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: var(--spacing-1);
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: var(--color-moss);
+}
+
+/* 7. 術語字典 (Glossary Filter & Grid) */
+.glossary-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-2);
+  align-items: center;
+  margin-bottom: var(--spacing-4);
+}
+
+.glossary-search-wrap {
+  flex: 1;
+  min-width: 240px;
+  position: relative;
+}
+
+.glossary-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-ink-subtle);
+  pointer-events: none;
+}
+
+.glossary-search-input {
+  padding-left: 40px;
+}
+
+.glossary-category-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+}
+
+.cat-pill {
+  font-size: var(--text-small);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-stone-light);
+  background: var(--color-paper-card);
+  cursor: pointer;
+  color: var(--color-ink-muted);
+  transition: all var(--transition-fast);
+}
+
+.cat-pill.active {
+  background: var(--color-moss);
+  border-color: var(--color-moss);
+  color: #F7F4EF;
+}
+
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--spacing-3);
+}
+
+.term-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-3);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-fast);
+}
+
+.term-card:hover {
+  border-color: var(--color-moss);
+}
+
+.term-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-1);
+}
+
+.term-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--color-ink);
+}
+
+.term-english {
+  font-size: 0.8rem;
+  color: var(--color-ink-subtle);
+  font-family: var(--font-sans);
+}
+
+.term-definition {
+  font-size: 0.95rem;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-2);
+}
+
+.term-field-note {
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  background: var(--color-paper-tint);
+  padding: var(--spacing-1) var(--spacing-2);
+  border-radius: var(--radius-button);
+  margin-top: auto;
+}
+
+/* 8. SCP 策略矩陣表格 (SCP Matrix Table) */
+.scp-category-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-4);
+}
+
+.scp-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: var(--spacing-2);
+  font-size: 0.95rem;
+}
+
+.scp-table th, .scp-table td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-stone-light);
+}
+
+.scp-table th {
+  background-color: var(--color-paper-tint);
+  color: var(--color-ink);
+  font-weight: 500;
+  font-size: var(--text-small);
+}
+
+.scp-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* 9. 四大實務行動方針卡片 (Four Action Pillars) */
+.pillar-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  position: relative;
+}
+
+.pillar-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* 10. 支援資源與緊急指引 (Resources Section) */
+.emergency-box {
+  background-color: var(--color-rust-light);
+  border: 1px solid var(--color-rust-border);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-6);
+}
+
+.emergency-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--spacing-3);
+  margin-top: var(--spacing-3);
+}
+
+.emergency-step-item {
+  background: #FFFFFF;
+  border-radius: var(--radius-button);
+  padding: var(--spacing-3);
+  border: 1px solid var(--color-rust-border);
+}
+
+.emergency-step-item h4 {
+  color: var(--color-rust);
+  font-size: 1rem;
+  margin-bottom: 6px;
+}
+
+.resource-org-card {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  margin-bottom: var(--spacing-3);
+}
+
+/* 11. 引用產生器 (Citation Module) */
+.citation-box {
+  background: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+}
+
+.citation-text {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  background: var(--color-paper-tint);
+  padding: var(--spacing-3);
+  border-radius: var(--radius-button);
+  color: var(--color-ink);
+  overflow-x: auto;
+  margin-bottom: var(--spacing-2);
+}
+
+/* 12. 頁尾 (Footer) */
+.site-footer {
+  background-color: var(--color-paper-tint);
+  border-top: 1px solid var(--color-stone-light);
+  padding: var(--spacing-8) 0 var(--spacing-6);
+  color: var(--color-ink-muted);
+  font-size: var(--text-small);
+}
+
+.footer-quote {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-ink);
+  margin-bottom: var(--spacing-3);
+}
+
+.footer-meta {
+  line-height: 1.8;
+}

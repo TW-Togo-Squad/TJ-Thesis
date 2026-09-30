@@ -1,0 +1,163 @@
+/* ==========================================================================
+   RESPONSIVE CSS - 雙版思維與多螢幕適配 (DESIGN.md RWD 規範)
+   斷點：1024px (Desktop/Tablet), 768px (Tablet/Mobile), 480px, 320px (極窄檢驗)
+   ========================================================================== */
+
+/* 手機版選單切換按鈕（預設桌機隱藏） */
+.mobile-nav-toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-button);
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--color-ink);
+}
+
+.mobile-nav-toggle:focus-visible {
+  outline: 2px solid var(--color-moss);
+}
+
+/* 1024px 平板橫向與小型螢幕 */
+@media (max-width: 1024px) {
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-summary-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .triangle-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 768px 平板直向與手機尺寸 */
+@media (max-width: 768px) {
+  :root {
+    --spacing-8: 48px;
+    --spacing-6: 32px;
+  }
+
+  .mobile-nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background-color: var(--color-paper);
+    border-bottom: 1px solid var(--color-stone-light);
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--spacing-2) var(--spacing-3);
+    box-shadow: var(--shadow-hover);
+    display: none;
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 12px 16px;
+    font-size: 1rem;
+    border-bottom: none;
+    border-left: 3px solid transparent;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    border-left-color: var(--color-moss);
+    background-color: var(--color-paper-tint);
+  }
+
+  .grid-3, .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-summary-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-main-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-english-title {
+    font-size: 1rem;
+  }
+
+  .hero-author-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .scp-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+
+  .scp-table {
+    min-width: 600px;
+  }
+
+  .emergency-steps-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 480px 小型手機螢幕 */
+@media (max-width: 480px) {
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .glossary-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .glossary-search-wrap {
+    min-width: 100%;
+  }
+
+  .citation-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .citation-actions .btn {
+    width: 100%;
+  }
+}
+
+/* 320px 極窄檢驗（確保任何小尺寸均不溢出或遮擋） */
+@media (max-width: 320px) {
+  :root {
+    --text-h1: 1.5rem;
+    --text-h2: 1.25rem;
+  }
+
+  .container {
+    padding: 0 12px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}

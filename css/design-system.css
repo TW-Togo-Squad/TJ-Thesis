@@ -1,0 +1,338 @@
+/* ==========================================================================
+   DESIGN SYSTEM - 子桓個人設計與開發識別系統 (DESIGN.md 實現版)
+   風格氣質：冷靜精緻、留白呼吸、文學質感、書籍排版節奏
+   嚴格遵守：低飽和色票、零 Emoji、禁止純黑純白、字重僅 400/500
+   ========================================================================== */
+
+:root {
+  /* 基礎色票 (Natural Low-Saturation Palette) */
+  --color-ink: #2B2A28;            /* 墨：主文字色，取代純黑 */
+  --color-ink-muted: #6B6862;      /* 墨次階：副標題、次要文字、註解 */
+  --color-ink-subtle: #8C8880;     /* 墨極淡：極次要標籤、詮釋資料 */
+  
+  --color-paper: #F7F4EF;          /* 紙：主要背景色，取代純白 */
+  --color-paper-card: #FAF8F5;     /* 紙卡片：浮起容器背景 */
+  --color-paper-elevated: #FFFFFF; /* 極少數純淨襯底，仍帶柔光 */
+  --color-paper-tint: #EFEAE1;     /* 紙底紋：區塊區隔沉著底色 */
+  
+  --color-stone: #B8B2A7;          /* 石：次要線條、禁用邊框 */
+  --color-stone-light: #E2DDD4;    /* 石淺：全站主要分隔線與細框線 (1px) */
+  --color-stone-dark: #8F887C;     /* 石深：圖表輔助線條 */
+
+  --color-moss: #5C6B54;           /* 苔：核心強調色、主要按鈕、啟用狀態 */
+  --color-moss-hover: #485542;     /* 苔深：滑過加深 */
+  --color-moss-light: #EDF0EA;     /* 苔淺：標籤襯底、強調背景 */
+  --color-moss-border: #C8D1C3;    /* 苔邊框：專屬邊框色 */
+
+  --color-rust: #A85B42;           /* 鏽：警示、重要標記（極克制使用） */
+  --color-rust-light: #F7E9E4;     /* 鏽淺：警示區塊襯底 */
+  --color-rust-border: #E8BFB3;    /* 鏽邊框 */
+
+  /* 字體堆疊 (Typography Fallbacks) */
+  --font-serif: "Noto Serif TC", "Songti TC", "PingFang TC", "Source Han Serif TC", "PMingLiU", serif;
+  --font-sans: "Noto Sans TC", "PingFang TC", "Hiragino Sans GB", "Microsoft JhengHei", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+
+  /* 字級規格 (Desktop / Mobile 透過 clamp 或 media 調整) */
+  --text-h1: clamp(1.75rem, 4vw, 2.25rem); /* 28px - 36px */
+  --text-h2: clamp(1.375rem, 3vw, 1.625rem); /* 22px - 26px */
+  --text-h3: clamp(1.125rem, 2vw, 1.25rem);  /* 18px - 20px */
+  --text-body: 1rem;                         /* 16px (不得低於 16px) */
+  --text-small: 0.875rem;                    /* 14px (不得低於 14px) */
+  
+  /* 行高規格 */
+  --leading-tight: 1.35;
+  --leading-heading: 1.45;
+  --leading-body: 1.75;
+  --leading-loose: 1.9;
+
+  /* 圓角體系 (Shape Language) */
+  --radius-card: 16px;
+  --radius-button: 10px;
+  --radius-image: 12px;
+  --radius-pill: 999px;
+
+  /* 幽微陰影 (Subtle Functional Elevation) */
+  --shadow-subtle: 0 1px 3px rgba(43, 42, 40, 0.05);
+  --shadow-hover: 0 4px 12px rgba(43, 42, 40, 0.07);
+
+  /* 佈局規格 (8px 網格倍數) */
+  --spacing-1: 8px;
+  --spacing-2: 16px;
+  --spacing-3: 24px;
+  --spacing-4: 32px;
+  --spacing-6: 48px;
+  --spacing-8: 64px;
+  --spacing-12: 96px;
+
+  --max-content-width: 760px;
+  --max-container-width: 1160px;
+
+  /* 微動效設定 (Gentle Micro-interactions) */
+  --transition-fast: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: 240ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 全域重置與基礎樣式 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  font-weight: 400;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* 標題與強調字體 - 採用襯線體 */
+h1, h2, h3, h4, .font-serif, .quote-text, .thesis-title {
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  font-weight: 500;
+  line-height: var(--leading-heading);
+  letter-spacing: 0.02em;
+}
+
+h1 {
+  font-size: var(--text-h1);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--spacing-3);
+}
+
+h2 {
+  font-size: var(--text-h2);
+  margin-bottom: var(--spacing-2);
+}
+
+h3 {
+  font-size: var(--text-h3);
+  margin-bottom: var(--spacing-1);
+}
+
+p {
+  margin-bottom: var(--spacing-2);
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+a {
+  color: var(--color-moss);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-moss-hover);
+  text-decoration: underline;
+}
+
+/* 分隔線：極淡細線，節奏提示 */
+hr, .divider {
+  border: none;
+  border-top: 1px solid var(--color-stone-light);
+  margin: var(--spacing-6) 0;
+}
+
+/* 容器與版心 */
+.container {
+  width: 100%;
+  max-width: var(--max-container-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-3);
+}
+
+.content-narrow {
+  max-width: var(--max-content-width);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 標籤元件 (Pill Badges) */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--text-small);
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.badge-moss {
+  background-color: var(--color-moss-light);
+  color: var(--color-moss);
+  border: 1px solid var(--color-moss-border);
+}
+
+.badge-stone {
+  background-color: var(--color-paper-tint);
+  color: var(--color-ink-muted);
+  border: 1px solid var(--color-stone-light);
+}
+
+.badge-rust {
+  background-color: var(--color-rust-light);
+  color: var(--color-rust);
+  border: 1px solid var(--color-rust-border);
+}
+
+/* 按鈕元件 (Buttons) - 觸控面積至少 44x44px */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+  font-weight: 500;
+  border-radius: var(--radius-button);
+  border: 1px solid transparent;
+  cursor: pointer;
+  background-color: transparent;
+  color: var(--color-ink);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+  user-select: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-moss);
+  outline-offset: 2px;
+}
+
+.btn-primary {
+  background-color: var(--color-moss);
+  color: #F7F4EF; /* 保留高對比底色字體 */
+  border-color: var(--color-moss);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-moss-hover);
+  border-color: var(--color-moss-hover);
+  color: #F7F4EF;
+  text-decoration: none;
+}
+
+.btn-outline {
+  border-color: var(--color-stone);
+  color: var(--color-ink);
+  background-color: var(--color-paper-card);
+}
+
+.btn-outline:hover {
+  border-color: var(--color-moss);
+  color: var(--color-moss);
+  text-decoration: none;
+}
+
+.btn-text {
+  padding: 8px 12px;
+  color: var(--color-moss);
+  background: transparent;
+}
+
+.btn-text:hover {
+  color: var(--color-moss-hover);
+  background-color: var(--color-moss-light);
+  text-decoration: none;
+}
+
+/* 經典卡片 (Cards) */
+.card {
+  background-color: var(--color-paper-card);
+  border: 1px solid var(--color-stone-light);
+  border-radius: var(--radius-card);
+  padding: var(--spacing-4);
+  box-shadow: var(--shadow-subtle);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.card:hover {
+  border-color: var(--color-stone);
+}
+
+/* 引用框 (Blockquotes / Excerpts) */
+.quote-box {
+  background-color: var(--color-paper-tint);
+  border-left: 3px solid var(--color-moss);
+  border-radius: 0 var(--radius-button) var(--radius-button) 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  margin: var(--spacing-3) 0;
+  font-family: var(--font-serif);
+  color: var(--color-ink);
+  font-style: normal;
+}
+
+.quote-box p {
+  margin-bottom: var(--spacing-1);
+}
+
+.quote-box .quote-author {
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  color: var(--color-ink-muted);
+  display: block;
+}
+
+/* 警示呼籲框 (Notice / Callout) */
+.callout-rust {
+  background-color: var(--color-rust-light);
+  border-left: 3px solid var(--color-rust);
+  border-radius: 0 var(--radius-button) var(--radius-button) 0;
+  padding: var(--spacing-3) var(--spacing-4);
+  margin: var(--spacing-3) 0;
+}
+
+/* 輸入框元件 (Inputs) */
+.input-field {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 14px;
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-paper-card);
+  border: 1px solid var(--color-stone);
+  border-radius: var(--radius-button);
+  transition: border-color var(--transition-fast);
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--color-moss);
+  background-color: #FFFFFF;
+}
+
+.input-field::placeholder {
+  color: var(--color-ink-subtle);
+}
+
+/* 動態減低模式支持 */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
